@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningcards.ChooseController">
+   <children>
+      <TableView fx:id="deckTableview" layoutY="83.0" prefHeight="276.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="deckTableviewName" prefWidth="299.0" text="Name" />
+          <TableColumn fx:id="deckTableviewCards" prefWidth="266.0" text="Cards" />
+        </columns>
+      </TableView>
+      <Label layoutX="108.0" layoutY="14.0" text="Choose your learning Deck">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Button layoutX="14.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#continueButtonClicked" text="Continue" />
+      <Button layoutX="541.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#closeButtonClicked" text="Close" />
+   </children>
+</Pane>
