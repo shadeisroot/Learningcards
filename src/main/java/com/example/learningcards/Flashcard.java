@@ -3,10 +3,20 @@ package com.example.learningcards;
 public class Flashcard {
     private String question;
     private String answer;
+    private int deck_id;
 
-    public Flashcard(String question, String answer) {
+    public Flashcard(String question, String answer, int deck_id) {
         this.question = question;
         this.answer = answer;
+        this.deck_id = deck_id;
+    }
+
+    public int getDeck_id() {
+        return deck_id;
+    }
+
+    public void setDeck_id(int deck_id) {
+        this.deck_id = deck_id;
     }
 
     public String getQuestion() {
