@@ -1,9 +1,12 @@
-package com.example.learningcards;
+package com.example.learningcards.GUI;
 
+import com.example.learningcards.Business.Flashcard;
+import com.example.learningcards.Data.Deckdao;
+import com.example.learningcards.Data.DeckdaoImpl;
+import com.example.learningcards.Data.Flashcardsdao;
+import com.example.learningcards.Data.FlashcardsdaoImpl;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,7 +18,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.List;
 
 public class QuestionsController {
@@ -38,9 +40,10 @@ public class QuestionsController {
     @FXML
     private ImageView questionImage;
 
+
     public void initialize() {
     }
-
+//Inistializing the flashcards
     public void initializeflashcards(){
         if (!flashcards.isEmpty()) {
             cardCountLabel.setText(String.valueOf(getNumberOfCards()) + " " + "Cards Remaining");
@@ -50,7 +53,7 @@ public class QuestionsController {
         }
 
     }
-
+//Moves the flashcard back by a certain percentage
     public void moveFlashcardBackByPercentage(int index, double percentage) {
         if (index >= 0 && index < flashcards.size()) {
             Flashcard flashcard = flashcards.get(index);
@@ -61,10 +64,10 @@ public class QuestionsController {
         }
     }
 
-
+//Moves the card back by 20 % when clicked the almost correct button and shows the next card in line
     @FXML
     void almcorrectButton(MouseEvent event) {
-        moveFlashcardBackByPercentage(0, 10);
+        moveFlashcardBackByPercentage(0, 20);
         try {
             if (!flashcards.isEmpty()) {
                 currentIndex = (currentIndex + 1) % flashcards.size();
@@ -80,7 +83,7 @@ public class QuestionsController {
         }
 
     }
-
+//Removes the flashcard tempoarily and shows the next card in line
     @FXML
     void correctButton(MouseEvent event) {
 
@@ -100,7 +103,7 @@ public class QuestionsController {
         }
     }
 
-
+//Removes the flashcard entirely and shows the next card in line
     @FXML
     void irrelevantButton(MouseEvent event) {
         fdi.deleteFlashcard(flashcards.get(0).getQuestion());
@@ -119,10 +122,10 @@ public class QuestionsController {
             questionLabel.setText("theres no more cards");
         }
     }
-
+//Moves the flashcard back by 60 percent and shows the next card in line
     @FXML
     void notCorrectButton(MouseEvent event) {
-        moveFlashcardBackByPercentage(0, 80);
+        moveFlashcardBackByPercentage(0, 60);
         try {
             if (!flashcards.isEmpty()) {
                 currentIndex = (currentIndex + 1) % flashcards.size();
@@ -138,7 +141,7 @@ public class QuestionsController {
         }
 
     }
-
+//Moves the flashcard back by 40 percent and shows the next card in line
     @FXML
     void partCorrectButton(MouseEvent event) {
         moveFlashcardBackByPercentage(0, 40);
@@ -156,19 +159,19 @@ public class QuestionsController {
             questionLabel.setText("theres no more cards");
         }
     }
-
+//Shows the answer to the question
     @FXML
     void showAnswer(MouseEvent event) {
         if (!flashcards.isEmpty()) {
             answerLabel.setText("Answer: " + flashcards.get(currentIndex).getAnswer());
         }
     }
-
+//Updates the number of cards count
     public int getNumberOfCards() {
         ddi.updatecardcount(flashcards.size(),deckid);
         return flashcards.size();
     }
-
+//Opens a new window to be able to create a new flashcard
     public void newCardButton(MouseEvent mouseEvent) {
 
         Stage editStage = new Stage();
@@ -216,18 +219,7 @@ public class QuestionsController {
         editStage.showAndWait();
     }
 
-
-    public void restartButton(MouseEvent mouseEvent) throws IOException {
-        Stage currentStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-        currentStage.close();
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(ChooseApplication.class.getResource("questions.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Learning Cards!");
-        stage.setScene(scene);
-        stage.show();
-    }
-
+//Setdeckid which is used to initialize the application
     public void setDeckId(int deckid) {
         System.out.println(deckid);
         this.deckid = deckid;

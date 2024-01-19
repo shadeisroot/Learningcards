@@ -1,4 +1,6 @@
-package com.example.learningcards;
+package com.example.learningcards.Data;
+
+import com.example.learningcards.Business.Flashcard;
 
 import java.util.List;
 

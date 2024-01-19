@@ -1,5 +1,6 @@
-package com.example.learningcards;
+package com.example.learningcards.Data;
 
+import com.example.learningcards.Business.Deck;
 import javafx.collections.ObservableList;
 
 public interface Deckdao {

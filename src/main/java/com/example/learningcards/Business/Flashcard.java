@@ -1,4 +1,4 @@
-package com.example.learningcards;
+package com.example.learningcards.Business;
 
 public class Flashcard {
     private String question;

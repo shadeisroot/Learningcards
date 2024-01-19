@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.7085427135678392" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningcards.QuestionsController">
+<SplitPane dividerPositions="0.7085427135678392" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.learningcards.GUI.QuestionsController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
@@ -31,7 +31,6 @@
             <Button layoutX="371.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#notCorrectButton" text="Not Correct" />
             <Button layoutX="484.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#irrelevantButton" text="Irrelevant" />
             <Button layoutX="37.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#newCardButton" text="New card" />
-            <Button layoutX="529.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#restartButton" text="Restart" />
          </children></AnchorPane>
   </items>
 </SplitPane>

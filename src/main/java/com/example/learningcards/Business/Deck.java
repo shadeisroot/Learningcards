@@ -1,4 +1,4 @@
-package com.example.learningcards;
+package com.example.learningcards.Business;
 
 public class Deck {
     private String name;
